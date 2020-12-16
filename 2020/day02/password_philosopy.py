@@ -13,6 +13,8 @@ for line in file:
   
   # password = part after colon
   password = line.strip().split(":")[1]
+
+  # check if password contains between min and max of given letter
   if password.count(letter) >= min and password.count(letter) <= max:
     num_valid += 1
 
