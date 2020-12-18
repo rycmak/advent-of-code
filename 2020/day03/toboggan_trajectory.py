@@ -21,6 +21,7 @@ for line in file:
   map_original.append(list(line.strip()))
 
 map_full = map_original  # map_full will be a 2D array containing full (repeated) map
+# number of map copies needed horizontally
 num_copies = int((num_rows - 1) * 3 / len(map_original[0])) + 1  # if using numpy, use np.ceil instead of +1
 for i in range(num_copies):
   # append map_full with copy of map_original
