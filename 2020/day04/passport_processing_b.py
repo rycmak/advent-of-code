@@ -3,6 +3,7 @@ import re
 all_passports = []
 num_valid_passports = 0
 
+# Make a dict containing a given passport's info
 def enter_passport_info(key_value_pairs, passport):
   for pair in key_value_pairs:
     key = pair.split(":")[0]
@@ -10,12 +11,14 @@ def enter_passport_info(key_value_pairs, passport):
     passport[key] = value
   return passport
 
+# Checks whether given passport is valid
 def valid_passport(passport):
   required_keys = ['byr', 'eyr', 'ecl', 'hcl', 'hgt', 'iyr', 'pid']
   if all(key in passport.keys() for key in required_keys):
     # check each key contains valid value
     return all(valid_value(key, value) for key, value in passport.items())
 
+# Check if value associated with a key is valid
 def valid_value(key, value):
   if key == 'byr':
     return (int(value) >= 1920 and int(value) <= 2002)
