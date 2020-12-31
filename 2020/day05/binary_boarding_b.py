@@ -1,6 +1,3 @@
-# Find highest seat ID
-# ID = row * 8 + column
-
 # Take first 7 chars and string translate F -> 0, B-> 1
 # Convert binary to decimal: int('binary_number', 2)
 
@@ -31,4 +28,9 @@ for line in file:
   seat_id = row * 8 + column
   seat_ids.append(seat_id)
 
-print("Highest seat id = ", max(seat_ids))
+# Use set difference to find missing seat_id within sequence
+# Idea from https://stackoverflow.com/a/16974075/2108880
+seat_ids = sorted(seat_ids)
+lowest = seat_ids[0]
+highest = seat_ids[-1]
+print("Missing seat ID: ", set(range(lowest, highest + 1)).difference(seat_ids))
