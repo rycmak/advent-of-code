@@ -26,10 +26,10 @@ for line in file:
   joltages.append(int(line.strip()))
 
 joltages.sort()
-joltages.append(max(joltages) + 3)
+joltages.append(max(joltages) + 3)  # device joltage
 joltages_shifted = copy.deepcopy(joltages)
-joltages_shifted.insert(0, 0)  # insert 0 at beginning of shifted list
-joltages.append(0)  # insert 0 at end of original list
+joltages_shifted.insert(0, 0)  # insert 0 at beginning of shifted list (for padding)
+joltages.append(0)  # insert 0 at end of original list (for padding)
 
 joltages_diff = list(map(sub, joltages, joltages_shifted))[1:-1]
 
