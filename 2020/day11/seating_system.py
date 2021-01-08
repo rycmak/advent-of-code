@@ -42,7 +42,6 @@ def find_adjacent_seats(row, col):
   
 
 def check_adjacent_empty(row, col):
-  # print("CHECK_ADJ_EMPTY: ", reference[row][col])
   adjacent_seats = find_adjacent_seats(row, col)
   if all([reference[seat[0]][seat[1]] != '#' for seat in adjacent_seats]):
     return '#'
@@ -50,7 +49,6 @@ def check_adjacent_empty(row, col):
     return 'L'
 
 def check_adjacent_occupied(row, col):
-  # print("CHECK_ADJ_OCC: ", reference[row][col])
   adjacent_seats = find_adjacent_seats(row, col)
   if sum([reference[seat[0]][seat[1]] == '#' for seat in adjacent_seats]) >= 4:
     return 'L'
@@ -59,7 +57,6 @@ def check_adjacent_occupied(row, col):
 
 
 # Iterations
-seats = []
 stabilized = False
 num_iterations = 0
 while stabilized == False:
@@ -74,7 +71,6 @@ while stabilized == False:
         seats_row.append(check_adjacent_occupied(row, col))
       else:
         seats_row.append(reference[row][col])
-    # print("SEATS_ROW: ", seats_row)
     seats.append(seats_row)
   # After all rows have been processed, check if anything has changed:
   stabilized = seats == reference
@@ -85,4 +81,3 @@ while stabilized == False:
   else:
     reference = copy.deepcopy(seats)
   
-
