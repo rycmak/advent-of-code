@@ -15,7 +15,7 @@ first_buses = [((timestamp // bus) + 1) * bus for bus in buses]
 
 time_diffs = [first_bus - timestamp for first_bus in first_buses]
 min_time = [(i, time) for i, time in enumerate(time_diffs) if time == min(time_diffs)]
-# Extract (index, min_time) from array above
+# Extract (index, min_time) from min_time array above
 min_time_index, min_time = min_time[0][0], min_time[0][1]
 first_bus = buses[min_time_index]
 
