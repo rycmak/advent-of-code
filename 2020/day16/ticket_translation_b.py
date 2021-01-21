@@ -5,8 +5,8 @@
 # Make rules dict with rule name as key and array of possible valid numbers as value.
 # Make rules_positions dict with rule name as key and set of possible positions as value;
 # initially, all positions are possible;
-# but set will be gradually reduced by process of elimination by checking each ticket.
-# At the end, check each rule has just one possible position.
+# but set will be gradually reduced via process of elimination by checking each ticket.
+# At the end, each rule should be left with only one possible position.
 
 data = []
 index = 0
