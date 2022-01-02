@@ -6,6 +6,6 @@ was otherwise correct (worked on all the examples).
 I had assumed that `bin()` would return 4 bits for each character in the hex string 
 representation: e.g., `bin(int('2AB07', base=16))[2:]` would return `00101010101100000111`;
 however, for the first char in the hex string, it actually only returns the most significant bits, 
-in this case `101010101100000111`.  So I needed to pad the beginning of the
-binary with enough 0's to ensure the length of the resulting binary is exactly 
-4x the length of the hex representation.
+in this case `10` instead of `0010`, so we would get the resulting binary `101010101100000111` instead.  
+Therefore, I needed to pad the beginning of the binary with enough 0's to ensure the length 
+of the resulting binary is exactly 4x the length of the hex representation.
