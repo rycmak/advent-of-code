@@ -11,7 +11,7 @@ char_processed = 4
 
 for char in datastream[4:]:
   if all([running_list.count(running_list[i]) == 1 for i in range(4)]):
-    print(f"First start-of-message marker detected; number of chars processed = {char_processed}")
+    print(f"First start-of-packet marker detected; number of chars processed = {char_processed}")
     break
   else:
     running_list.popleft()
