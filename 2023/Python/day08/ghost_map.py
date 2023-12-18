@@ -32,8 +32,8 @@ for node in a_nodes:
       num_steps += 1
       next_node = network[current_node][direction]
       if next_node in z_nodes:  # reached a node ending in 'Z'
-        node_steps[node] = num_steps  # assume we will not reach a different 'Z' node if we continued
-        done = True
+        node_steps[node] = num_steps
+        done = True  # assume we will not reach a different 'Z' node if we continued
         break
       current_node = next_node
 
