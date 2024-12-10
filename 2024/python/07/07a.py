@@ -14,19 +14,15 @@ result = 0
 
 for k in range(len(eqns)):
   eqn = eqns[k]
-  # print(f"eqn = {eqn}")
   length = len(eqn)
   operatorCombinations = list(product(operators, repeat=(length-1)))
-  # print(f"opCombs = {operatorCombinations}")
   for opComb in operatorCombinations:
     tempResult = eqn[0]
     for i in range(length-1):
       if opComb[i] == '+':
         tempResult += eqn[i+1]
-        # print(f"in +: temp = {tempResult}")
       else:
         tempResult *= eqn[i+1]
-        # print(f"in *: temp = {tempResult}")
     if tempResult == testVals[k]:
       result += testVals[k]
       break
