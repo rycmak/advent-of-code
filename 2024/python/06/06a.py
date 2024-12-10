@@ -24,30 +24,24 @@ def getNextDirectionIndex():
   return currentDirectionIndex
 
 def getNextPos(currentPos, currentDirection):
-  # print(f"currentPos = {currentPos}, currentDirection = {currentDirection}")
   return tuple(map(lambda x, y: x + y, currentPos, currentDirection))
 
 def isValid(nextPos):
-  # print(f"isValid: nextPos = {nextPos}")
   if nextPos[0] >=0 and nextPos[0] < numRows \
     and nextPos[1] >= 0 and nextPos[1] < numCols:
     return True
-  # print("not valid")
   return False
 
 
 nextPos = getNextPos(currentPos, directions[currentDirectionIndex])
 
 while isValid(nextPos):
-  # print(f"while, currentPos = {currentPos}, char = {input[currentPos[0]][currentPos[1]]}")
   if input[nextPos[0]][nextPos[1]] == '.' or input[nextPos[0]][nextPos[1]] == '^':
     currentPos = nextPos
     inputCopy[currentPos[0]][currentPos[1]] = 'X'
     nextPos = getNextPos(currentPos, directions[currentDirectionIndex])
-    # print(f"After ., nextPos = {nextPos}")
   elif input[nextPos[0]][nextPos[1]] == '#':
     nextPos = getNextPos(currentPos, directions[getNextDirectionIndex()])
-    # print(f"After #, nextPos = {nextPos}")
 
 count = 0
 
